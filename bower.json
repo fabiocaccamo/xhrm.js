@@ -1,0 +1,37 @@
+{
+  "name": "xhrm.js",
+  "authors": [
+    "Fabio Caccamo <fabio.caccamo@gmail.com>"
+  ],
+  "description": "xml http request manager on top of jQuery $.ajax",
+  "main": [
+    "src/xhrm.js"
+  ],
+  "moduleType": [],
+  "keywords": [
+    "xhrm",
+    "xhr",
+    "xml",
+    "http",
+    "request",
+    "manager",
+    "jquery",
+    "ajax"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/fabiocaccamo/xhrm.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/fabiocaccamo/xhrm.js.git"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": ">=2.0.0"
+  }
+}
