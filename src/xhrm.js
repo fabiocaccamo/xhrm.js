@@ -248,7 +248,7 @@
             return request;
         },
 
-        cancelRequestsByID:function( id )
+        cancelRequestByID:function( id )
         {
             var request = _requests[ String(id) ];
 
@@ -267,7 +267,7 @@
 
             for( id in _requests )
             {
-                this.cancelRequestsByID( id );
+                this.cancelRequestByID( id );
             }
         }
 
