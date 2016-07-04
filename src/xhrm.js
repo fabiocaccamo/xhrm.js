@@ -138,7 +138,7 @@
                 contentType: 'application/json; charset=utf-8',
                 crossDomain: true,
                 timeout: (1000 * 15),
-                overwrite: xhrm.overwrite.NONE,
+                overwrite: this.overwrite.NONE,
                 state: ''
 
             }, options );
