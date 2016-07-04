@@ -135,7 +135,7 @@
                 type: 'POST',
                 dataType: 'text',
                 data: {},
-                contentType: 'application/json; charset=utf-8',
+                //contentType: 'application/json; charset=utf-8',
                 crossDomain: true,
                 timeout: (1000 * 15),
                 overwrite: this.overwrite.NONE,
