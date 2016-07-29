@@ -126,16 +126,39 @@
                 options.url = (_settings.baseURL + options.url);
             }
 
+            //easy contentType setting
+            var contentTypes = {
+                html: 'text/html; charset=utf-8',
+                json: 'application/json; charset=utf-8',
+                text: 'text/plain; charset=utf-8',
+                vars: 'application/x-www-form-urlencoded; charset=utf-8'
+            };
+
+            var contentType = (contentTypes[ options.contentType ] || contentTypes[ options.requestType ] || contentTypes[ options.requestContentType ]);
+            if( contentType ){
+                contentType = contentType.toLowerCase()
+
+                options.contentType = contentType;
+            }
+
+            var dataType = (options.dataType || options.responseType || options.responseContentType);
+            if( dataType ){
+                dataType = dataType.toLowerCase();
+
+                if( dataType == 'jquery' ){
+                    dataType = 'text';
+
+                    options.dataTypeJQuery = true;
+                }
+
+                options.dataType = dataType;
+            }
+
             var request = {};
-
             request.id = String(_counter++);
-
             request.options = $.extend({}, {
 
-                type: 'POST',
-                dataType: 'text',
                 data: {},
-                //contentType: 'application/json; charset=utf-8',
                 crossDomain: true,
                 timeout: (1000 * 15),
                 overwrite: this.overwrite.NONE,
@@ -209,8 +232,12 @@
                 if( typeof(request.options.successCallback) === 'function' )
                 {
                     try {
-
-                        request.options.successCallback( data, text );
+                        if( request.options.dataTypeJQuery ){
+                            request.options.successCallback( $('<div></div>').append(data), text );
+                        }
+                        else {
+                            request.options.successCallback( data, text );
+                        }
                     }
                     catch(error){
 
