@@ -100,22 +100,22 @@
         {
             if( options == undefined )
             {
-                throw new Error('options cannot be undefined');
+                throw new Error('[xhrm] options cannot be undefined');
             }
 
             if( typeof(options) != 'object' )
             {
-                throw new Error('options should be an {}');
+                throw new Error('[xhrm] options should be an {}');
             }
 
             if( typeof(options.url) != 'string' )
             {
-                throw new Error('options.url cannot be undefined');
+                throw new Error('[xhrm] options.url cannot be undefined');
             }
 
             if( options.url == '' )
             {
-                throw new Error('options.url cannot be empty');
+                throw new Error('[xhrm] options.url cannot be empty');
             }
             else if( options.url.substring(0, 4).toLowerCase() != 'http' && _settings.baseURL != '' )
             {
@@ -148,7 +148,7 @@
 
                 if( request.options.state == '' && ((request.options.overwrite & this.overwrite.SAME_STATE) == this.overwrite.SAME_STATE) )
                 {
-                    throw new Error('options.state cannot be "' + request.options.state + '" if the overwrite.SAME_STATE flag is present.')
+                    throw new Error('[xhrm] options.state cannot be "' + request.options.state + '" if the overwrite.SAME_STATE flag is present.')
                 }
             }
 
@@ -194,7 +194,7 @@
 
             request.toString = function()
             {
-                return '[ xhrm.request:{' + this.id + '} ]';
+                return '[xhrm][request=' + this.id + ']';
             };
 
             request.options.successCallback = request.options.success;
@@ -217,7 +217,7 @@
                         if( typeof(request.options.errorCallback) === 'function' )
                         {
                             //parsing error
-                            request.options.errorCallback( new Error( 'Parsing Error - ' + error.message ) );
+                            request.options.errorCallback( new Error( '[xhrm] parsing error - ' + error.message ) );
                         }
                     }
                 }
