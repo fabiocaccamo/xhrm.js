@@ -231,21 +231,11 @@
 
                 if( typeof(request.options.successCallback) === 'function' )
                 {
-                    try {
-                        if( request.options.dataTypeJQuery ){
-                            request.options.successCallback( $('<div></div>').append(data), text );
-                        }
-                        else {
-                            request.options.successCallback( data, text );
-                        }
+                    if( request.options.dataTypeJQuery ){
+                        request.options.successCallback( $('<div></div>').append(data), text );
                     }
-                    catch(error){
-
-                        if( typeof(request.options.errorCallback) === 'function' )
-                        {
-                            //parsing error
-                            request.options.errorCallback( new Error( '[xhrm] parsing error - ' + error.message ) );
-                        }
+                    else {
+                        request.options.successCallback( data, text );
                     }
                 }
             };
