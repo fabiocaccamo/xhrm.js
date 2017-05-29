@@ -166,6 +166,10 @@
 
             }, options );
 
+            if( request.options.timeout < 30 ){
+                request.options.timeout *= 1000;
+            }
+
             if( request.options.state ){
                 request.options.state = String(request.options.state);
 
