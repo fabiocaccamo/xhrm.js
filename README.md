@@ -2,7 +2,9 @@
 **xml http request manager** on top of **`jQuery $.ajax`** *(all jQuery ajax options are supported)*
 
 ## Features:
+- Option `baseURL` (global): if defined all relative urls will be requested using the base url
 - Option `overwrite`: `xhrm.overwrite.NONE` (default), `xhrm.overwrite.SAME_STATE`, `xhrm.overwrite.SAME_URL`
+- Option `state`: `''` used to overwrite concurrent requests for the same state
 - Option `contentType` accepts smart values: `html`, `json`, `text`, `vars`
 - Option `dataType:'jquery'` if you need to **load a page as a jQuery object**
 - Option `timeout` automatically detects if the value is in seconds or in milliseconds
@@ -11,7 +13,7 @@
 ### Class methods:
 Config global options:
 ```JavaScript
-xhrm.configRequests({});
+xhrm.configRequests({ baseURL:'http://localhost/' });
 ```
 Create a request:
 ```JavaScript
@@ -35,7 +37,7 @@ xhrm.cancelAllRequests();
 ```JavaScript
 request.id;
 ```
-**`[method]`** Get a Boolean value that indicates if the request object has been sent
+**`[method]`** Boolean value that indicates if the request object has been sent
 ```JavaScript
 request.sent;
 ```
@@ -43,11 +45,11 @@ request.sent;
 ```JavaScript
 request.send();
 ```
-**`[property]`** Get a Boolean value that indicates if the request object can be cancelled
+**`[property]`** Boolean value that indicates if the request object can be cancelled
 ```JavaScript
 request.cancelable;
 ```
-**`[property]`** Get a Boolean value that indicates if the request object has been cancelled
+**`[property]`** Boolean value that indicates if the request object has been cancelled
 ```JavaScript
 request.cancelled;
 ```
@@ -59,7 +61,7 @@ request.cancel();
 ```JavaScript
 request.clone();
 ```
-**`[method]`** Get a string representation of the request object
+**`[method]`** String value that represent the request object
 ```JavaScript
 request.toString();
 ```
