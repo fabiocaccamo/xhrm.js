@@ -33,7 +33,7 @@ xhrm.cancelAllRequests();
 ```
 
 ### Instance methods/properties:
-**`[property]`** Get the request ID (an incremental counter as String):
+**`[property]`** String value of the request ID (auto-increment):
 ```JavaScript
 request.id;
 ```
